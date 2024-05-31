@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Top Posts Viewer",
+    "version": "1.0",
+    "description": "Launch a new tab with top posts from any subreddit.",
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "webRequest",
+        "https://jisho.org/api/v1/search/*"
+    ],
+    "content_scripts":[{
+        "css": ["styles.css"],
+        "js": ["js/content.js", "js/jquery.js"],
+        "matches": ["http://*/*","https://*/*"]
+    }],
+    "host_permissions": [
+        "https://jisho.org/api/v1/search/*"
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action" : {
+        "default_icon" : "images/icon.png"
+    },
+    "icons": {
+        "16": "images/icon.png",
+        "32": "images/icon.png",
+        "48": "images/icon.png",
+        "128":"images/icon.png"
+    }
+}
